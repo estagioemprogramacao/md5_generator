@@ -1,0 +1,22 @@
+<div id="logo">
+  <%= image_tag 'logo-cpe.png' %>
+</div>
+
+<br><br>
+
+<div id="key-pair-app">
+  <% if @key_pair.persisted? %>
+    <div id="key-pair-inactivation">
+      <p class="basic-text"><strong>Chave: </strong><%= "#{@key_pair.key}" %></p>
+      <p class="basic-text"><strong>MD5: </strong><%= "#{@key_pair.secret_key}" %></p>
+      <%= link_to 'Inativar chave', key_pairs_inactivate_all_path, class: "btn btn-lg btn-outline-secondary" %>
+    </div>
+  <% else %>
+    <div id="key-pair-form">
+      <%= form_for(@key_pair, url: key_pairs_path, html: { class: "form-inline" }) do |f| %>
+        <%= f.text_field :key, placeholder: 'Insira a chave', class: "form-control form-control-lg" %>
+        <%= f.submit 'Gerar MD5', class: "btn btn-lg btn-outline-secondary" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
