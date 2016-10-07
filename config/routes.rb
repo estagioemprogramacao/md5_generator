@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get  'key_pairs' => 'key_pairs#index'
   post 'key_pairs' => 'key_pairs#create'
   get  'key_pairs/inactivate_all' => 'key_pairs#inactivate_all'
+
+  get 'ping' => 'application#ping'
 end
