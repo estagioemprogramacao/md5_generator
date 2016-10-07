@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: md5_generator_production
-  username: md5_generator
-  password: <%= ENV['MD5_GENERATOR_DATABASE_PASSWORD'] %>
+  host: <%= ENV['MD5_GENERATOR_PG_HOST'] %>
+  port: <%= ENV['MD5_GENERATOR_PG_PORT'] %>
+  database: <%= ENV['MD5_GENERATOR_PG_DATABASE'] %> #md5_generator_production
+  username: <%= ENV['MD5_GENERATOR_PG_USERNAME'] %>
+  password: <%= ENV['MD5_GENERATOR_PG_PASSWORD'] %>
